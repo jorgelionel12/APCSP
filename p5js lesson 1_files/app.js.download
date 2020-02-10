@@ -1,0 +1,44 @@
+// function setup(){
+//     createCanvas(300, 300)
+//     createP("my lucky number is")
+
+// }
+
+// function draw(){
+//      background('black');
+// }
+
+
+// function setup() { 
+//     createCanvas(400, 400);
+//     background(220)
+//     createElement('h1', 'my lucky numbers below');
+//     createElement('p', 'my lucky number is 11');
+//   } 
+//   function draw() { 
+//     background(220);
+//   }
+
+
+// function setup() {
+//     createCanvas(windowWidth, windowHeight);
+//     let titleText = createElement('h1', 'My lucky number is...');
+//     let numText = createElement('p', '14');
+//     console.log(numText) // Find out what is inside of this newly created numText objects
+//   }
+
+// EVENT LISTENERS
+
+function setup(){
+    createCanvas(400,400);
+
+}
+
+function mousePressed(){\
+    createP("My lucky number is 11");
+
+}
+
+function draw(){
+    background(220);
+}
