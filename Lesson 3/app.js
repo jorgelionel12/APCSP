@@ -1,14 +1,14 @@
 
-const add = 7 + 3;
-const sub = 7 - 3;
-const mult = 7 * 3;
-const div = 7 / 3;
-const paren = (83 + 92 + 86 + 94) / 4;
-console.log(add);
-console.log(sub);
-console.log(mult);
-console.log(div);
-console.log(paren);
+// const add = 7 + 3;
+// const sub = 7 - 3;
+// const mult = 7 * 3;
+// const div = 7 / 3;
+// const paren = (83 + 92 + 86 + 94) / 4;
+// console.log(add);
+// console.log(sub);
+// console.log(mult);
+// console.log(div);
+// console.log(paren);
 
 // let score = 0;
 // let lives = 3;
@@ -26,11 +26,11 @@ console.log(paren);
 
 
 
-function setup(){
-  let firstDie = int(1,6);
-  let secondDie = int (1,6);
-  let total = firstDie + secondDie
-  console.log('You have rolled a:' + firstDie);
-  console.log('and a:' + secondDie);
-  console.log('For a total of:' + total);
-}
+// function setup(){
+//   let firstDie = int(1,6);
+//   let secondDie = int (1,6);
+//   let total = firstDie + secondDie
+//   console.log('You have rolled a:' + firstDie);
+//   console.log('and a:' + secondDie);
+//   console.log('For a total of:' + total);
+// }
