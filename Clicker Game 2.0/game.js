@@ -13,6 +13,7 @@ let score = 0
 let opacity = 1
 let winningNum = 5
 
+
 function setup() {
   // Setup Canvas
   createCanvas(windowWidth, windowHeight)
@@ -21,6 +22,9 @@ function setup() {
 
   bananaImg.size(200,100);
 
+  heading = createElement('h2', 'Click the Banana');
+  heading.position(width / 3, height / 4);
+
   // Setup Lives Display
   livesDisplay = createElement('h4', 'LIVES: ' + lives)
   livesDisplay.position(width / 20, height / 14)
@@ -28,17 +32,25 @@ function setup() {
 
   // Creates Difficulty Slider
   const difficultyLabel = createElement('h4', 'DIFFICULTY')
-    difficultySlider = createSlider(frameRate);
+  slider = createSlider(1, 12, 1);
+  slider.position(78, 20);
+  slider.style('width', '80px');
   
 
 }
 
 function draw() {
   // Adjust frameRate according to slider
+  let val = slider.value();
+  frameRate(val);
+
 
 
   // Randomly Position Banana
   bananaImg.position(random(width), random(height))
+  bananaImg.mousePressed();
+
+
 
 
 }
@@ -47,14 +59,16 @@ function mousePressed() {
   if (dist(mouseX, mouseY, bananaImg.x, bananaImg.y) > 200) {
     decreaseLives()
   }
+
 }
 
 function increaseScore() {
-
+ 
 }
 
 function decreaseLives() {
-
+  lives = lives - 1
+  livesDisplay.html('LIVES: ' + lives)
 }
 
 function checkWin() {
@@ -63,5 +77,9 @@ function checkWin() {
 }
 
 function checkLose() {
-
+  if(lives , 0){
+    gotoLose
+  }
 }
+
+console.log(score)
