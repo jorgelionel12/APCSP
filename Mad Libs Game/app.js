@@ -7,18 +7,62 @@ function setup() {
 
   addInputOutputElements()
 
-  addTopic("place", "I once lived with my pet in a place called ", ". Never have I been to a more disgusting place where tyrannical gnomes rule.")
+ 
 
-  addTopic("verb", "I once lived with my pet in a place called ", ". Never have I been to a more disgusting place where tyrannical gnomes rule." )
+  addTopic(
+  'place',
+  'I once lived with my pet in a place called ',
+  '. Never have I been to a more disgusting place where tyrannical gnomes rule.',
+  false,
+  false,
 
-  // Creates next button and styles it
-  let outputDisplayBtn = createButton('NEXT')
-  outputDisplayBtn.mousePressed(showOutputHandler)
+  // ADD CODE: Add 4 more additional topics
+  )
+  
+  addTopic(
+    'food',
+    'My favorite food is ',
+    '. It is very good.',
+    true,
+    false,
 
-  function showOutputHandler() {
-    outputDivUI.show()
+  )
+  addTopic(
+    'sport',
+    'My best sport is ',
+    '. It is very fun.',
+    false,
+    false,
 
+  )
+  addTopic(
+    'job',
+    'My dream job is ',
+    '. It pays well.',
+    false,
+    false,
+  )
+addTopic(
+  'siblings name',
+  'My siblings name is ',
+  '. he is very cool.',
+  false,
+  false,
+)
+
+// Creates next button and styles it
+const outputDisplayBtn = createButton('NEXT')
+outputDisplayBtn.mousePressed(showOutputHandler).parent(inputDivUI)
+
+
+// ADD CODE: call .parent() to attach the button to the inputDivUI
+
+function showOutputHandler() {
+  outputDivUI.show()
+  outputDivUI.hide()
+  // ADD CODE: Hide the inputDivUI
   }
+ 
 }
 
 function addInputOutputElements() {
@@ -30,16 +74,39 @@ function addInputOutputElements() {
   outputDivUI.hide()
 }
 
-function addTopic(topic, intro, detail) {
-  createElement('p', 'Name a ' + topic.toUpperCase()).id('input-label').parent(inputDivUI)
 
-  let inputFieldUI = createInput(' ').id('input-field').parent(inputDivUI)
+function addTopic(topic, intro, detail, uppercase, num) {
+createElement('p', `Name a ${topic.toUpperCase()}`)
+  .id('input-label')
+  .parent(inputDivUI)
 
-  inputFieldUI.changed(updateOutputHandler)
+const inputFieldUI = createInput(' ')
+  .id('input-field')
+  .parent(inputDivUI)
 
-  let output = createP('').parent(outputDivUI)
+inputFieldUI.changed(updateOutputHandler)
 
-  function updateOutputHandler() {
-    output.html(intro + inputFieldUI.value() + detail)
+
+function updateOutputHandler() { 
+  const output = createP('').parent(outputDivUI)
+  // ADD CODE: convert the user input to lowercase by default
+  let userInput = inputFieldUI.value().toLowerCase()
+
+
+  // ADD CODE: convert to uppercase
+  if (uppercase === true) {
+    // ADD CODE: reassign userInput to be userInput.toUpperCase()
+    userInput = userInput.toUpperCase()
+
   }
+
+  // ADD CODE: CONVERT TO NUM
+  // add if() statement that checks to see iff num === true.
+  // if true, convert userInput to a number and perform some math on it
+
+  // OUTPUT BACK TO USER IN THE OUTPUT FIELD
+  output.html(`${intro} ${userInput} ${detail}`)
 }
+}
+  
+ 
