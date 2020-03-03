@@ -7,6 +7,7 @@ let title
 let slider
 
 
+
 // Initialize Game Variables
 let lives = 3
 let score = 0
@@ -28,6 +29,9 @@ function setup() {
   // Setup Lives Display
   livesDisplay = createElement('h4', 'LIVES: ' + lives)
   livesDisplay.position(width / 20, height / 14)
+  
+  scoreDisplay = createElement('h4', 'Score:' + score)
+  scoreDisplay.position(width / 20, height / 20)
 
 
   // Creates Difficulty Slider
@@ -48,7 +52,10 @@ function draw() {
 
   // Randomly Position Banana
   bananaImg.position(random(width), random(height))
-  bananaImg.mousePressed();
+  bananaImg.mousePressed(increaseScore);
+
+  checkLose()
+  checkWin()
 
 
 
@@ -58,17 +65,22 @@ function draw() {
 function mousePressed() {
   if (dist(mouseX, mouseY, bananaImg.x, bananaImg.y) > 200) {
     decreaseLives()
+    bananaImg.mousePressed(increaseScore)
   }
 
 }
 
 function increaseScore() {
+  score = score + 1
+  scoreDisplay.html('Score' + score)
+  checkScore()
  
 }
 
 function decreaseLives() {
   lives = lives - 1
   livesDisplay.html('LIVES: ' + lives)
+  checkLives()
 }
 
 function checkWin() {
@@ -77,9 +89,20 @@ function checkWin() {
 }
 
 function checkLose() {
-  if(lives , 0){
+  if(lives = 0){
     gotoLose
+    
   }
 }
+
+function goToLose(){
+  window.location.href ='lose.html'
+ 
+}
+
+function goToWin(){
+  window.location.href ='win.html'
+}
+
 
 console.log(score)
