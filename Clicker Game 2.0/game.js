@@ -85,8 +85,7 @@ function decreaseLives() {
 
 function checkWin() {
   if(score = 5){
-    
- 
+    gotoWin
   
 
 }
