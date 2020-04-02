@@ -98,11 +98,13 @@ function checkLose() {
 }
 
 function goToLose(){
+  LoseDisplay('You lost the game')
   window.location.href ='lose.html'
  
 }
 
 function goToWin(){
+  WinDisplay('You Win')
   window.location.href ='win.html'
 }
 
